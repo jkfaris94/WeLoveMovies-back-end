@@ -3,8 +3,10 @@ const express = require("express");
 const app = express();
 
 const moviesRouter = require("./movies/movies.router");
+const theatersRouter = require("./theaters/theaters.router");
 
 app.use("/movies", moviesRouter);
+app.use("/theaters", theatersRouter);
 
 // NOT FOUND HANDLER
 app.use((req, res, next) => {
