@@ -34,8 +34,15 @@ async function listTheaters(req, res) {
   res.json({ data });
 }
 
+async function listReviews(req, res) {
+  const { movieId } = req.params;
+  const data = await service.listReviewsByMovie(movieId);
+  res.json({ data });
+}
+
 module.exports = {
   list,
   read: [movieExists, read],
   listTheaters,
+  listReviews,
 };
