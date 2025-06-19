@@ -28,7 +28,14 @@ function read(req, res) {
   res.json({ data: res.locals.movie });
 }
 
+async function listTheaters(req, res) {
+  const { movieId } = req.params;
+  const data = await service.listTheatersByMovie(movieId);
+  res.json({ data });
+}
+
 module.exports = {
   list,
   read: [movieExists, read],
+  listTheaters,
 };
